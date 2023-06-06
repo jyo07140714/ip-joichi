@@ -35,13 +35,15 @@ return [
     
     'pdf' => [
         'enabled' => true,
-        //  'binary'  => env('WKHTML_PDF_BINARY', '/usr/local/bin/wkhtmltopdf-amd64'),
+        // ↓local環境(php artisan serve)では、こちらを使用する。
+        // 'binary'  => env('WKHTML_PDF_BINARY', '/usr/local/bin/wkhtmltopdf'),
+        // ↓Heroku環境では、こちらを使用する。(↑は、コメントアウト)
         'binary' => base_path('vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64'),
-         'timeout' => false,
+        'timeout' => false,
          //  ここ
-         'options' => ['enable-local-file-access' => true],
-         'env'     => [],
-      ],
+        'options' => ['enable-local-file-access' => true],
+        'env'     => [],
+    ],
     
     'image' => [
         'enabled' => true,
