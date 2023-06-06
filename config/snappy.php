@@ -35,7 +35,7 @@ return [
     
     'pdf' => [
         'enabled' => true,
-         'binary'  => env('WKHTML_PDF_BINARY', '/usr/local/bin/wkhtmltopdf'),
+         'binary'  => env('WKHTML_PDF_BINARY', '/usr/local/bin/wkhtmltopdf-amd64'),
          'timeout' => false,
          //  ここ
          'options' => ['enable-local-file-access' => true],
