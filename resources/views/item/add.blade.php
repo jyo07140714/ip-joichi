@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', '商品登録')
+@section('title', 'itemAdd')
 
 @section('content_header')
-    <h1>商品登録</h1>
+    <h1>itemAdd</h1>
 @stop
 
 @section('content')
@@ -24,23 +24,23 @@
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="name">名前</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="名前">
+                            <label for="name">name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="item name">
                         </div>
 
                         <div class="form-group">
-                            <label for="type">種別</label>
+                            <label for="type">type</label>
                             <input type="number" class="form-control" id="type" name="type" placeholder="1, 2, 3, ...">
                         </div>
 
                         <div class="form-group">
-                            <label for="detail">詳細</label>
-                            <input type="text" class="form-control" id="detail" name="detail" placeholder="詳細説明">
+                            <label for="detail">detail</label>
+                            <input type="text" class="form-control" id="detail" name="detail" placeholder="Description of item">
                         </div>
                     </div>
 
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">登録</button>
+                        <button type="submit" class="btn btn-dark">Add</button>
                     </div>
                 </form>
             </div>

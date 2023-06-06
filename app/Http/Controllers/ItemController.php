@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
+use App\Models\User;
 
 class ItemController extends Controller
 {
@@ -21,15 +22,20 @@ class ItemController extends Controller
     /**
      * 商品一覧
      */
-    public function index()
+    public function index(Request $request)
     {
+        $keyword = $request->keyword;
+
+        $items = Item::where('name', 'LIKE', "%$keyword%")->orWhere('detail', 'LIKE', "%$keyword%")->get();
+        
+        // dump($items);
         // 商品一覧取得
-        $items = Item
+        /* $items = Item
             ::where('items.status', 'active')
             ->select()
-            ->get();
+            ->get(); */
 
-        return view('item.index', compact('items'));
+        return view('item.index', compact('items','keyword'));
     }
 
     /**
@@ -57,4 +63,24 @@ class ItemController extends Controller
 
         return view('item.add');
     }
+
+    public function delete(Request $request)
+    {
+        $item = User::where('id', '=', $request->id)->first();
+        $item->delete();
+
+        return redirect('/items')->with('delete_message', '削除しました');;
+    }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->keyword;
+
+        $items = Item::where('name', 'LIKE', "%$keyword%")->orWhere('detail', 'LIKE', "%$keyword%")->get();
+        
+        // dump($items);
+
+        return view('item.index', compact('items','keyword'));
+    }
+
 }

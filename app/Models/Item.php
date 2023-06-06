@@ -2,15 +2,23 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
 
-class Item extends Model
+class Item extends Model 
+
+
+
+
 {
+    use HasFactory ,Sortable;
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
+
     protected $fillable = [
         'user_id',
         'name',
@@ -25,7 +33,7 @@ class Item extends Model
      */
     protected $hidden = [
     ];
-
+    
     /**
      * The attributes that should be cast.
      *
@@ -33,4 +41,7 @@ class Item extends Model
      */
     protected $casts = [
     ];
+
+    public $sortable = ['id','name','type',];
+    
 }

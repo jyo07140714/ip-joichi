@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', '商品一覧')
+@section('title', 'itemAll')
 
 @section('content_header')
-    <h1>商品一覧</h1>
+    <h1>itemAll</h1>
 @stop
 
 @section('content')
@@ -11,11 +11,21 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">商品一覧</h3>
-                    <div class="card-tools">
-                        <div class="input-group input-group-sm">
-                            <div class="input-group-append">
-                                <a href="{{ url('items/add') }}" class="btn btn-default">商品登録</a>
+                    <div class="mx-auto">
+                    <!-- <div class="card-tools text-center"> -->
+                        <div class="mx-auto" style="margin:0 auto">
+                            <!-- 検索フォーム -->
+                            <form method="get" action="{{ route('items.index') }}" class="form">
+                                {{ csrf_field() }}
+                                <div class="form-group row justify-content-center">
+                                    <div class="col-8"><input type="text" name="keyword" class="form-control" 
+                                        value="{{$keyword}}" placeholder="search name or detail"></div>
+                                    <div class="col-auto"><input type="submit" value="search" class="btn btn-dark"></div>
+                                </div>
+                            </form>
+                            <div class="input-group-append row justify-content-center">
+                                <a href="{{ url('items/add') }}" class="btn btn-dark">itemAdd</a>
+                                <a href="{{ url('output') }}" class="btn btn-dark">PDF</a>
                             </div>
                         </div>
                     </div>
@@ -25,9 +35,9 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>名前</th>
-                                <th>種別</th>
-                                <th>詳細</th>
+                                <th>name</th>
+                                <th>type</th>
+                                <th>detail</th>
                             </tr>
                         </thead>
                         <tbody>
