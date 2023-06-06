@@ -1,36 +1,33 @@
-## 商品管理システム
+# 商品情報取得でシステム
 
-### 環境構築手順
+## 概要 アプリケーションの概要
+このシステムは、ユーザー側が商品情報をストレスなく、スムーズに取得できることを考えて構築しました。
+追加した機能は、検索機能とPDF出力機能です。
+工夫した点は、ユーザー側の視点に立って、使いやすいデザインを考えシステムを構築したところです。
+例えば、商品一覧の画面に検索フォームや各ボタンを設置してこと、サイドバーを用いてこちらからもページに遷移できる点は、ユーザー側にストレスなく、使用して頂くシステムではないかと考えております。
 
-* Gitクローン
-* .env.example をコピーして .env を作成
-* MySQLかPostgreSQLのデータベース作成（名前：item_management）  
-  ローカルでMAMPを使用しているのであれば、MySQL推奨
-* .env にデータベース接続情報追加
+## 主な機能
+
+- ログイン・ログアウト機能
+- 商品一覧画面
+- 商品新規登録機能
+- 商品検索機能
+- 商品PDF出力機能
+
+## 開発環境
+
+PHP 8.2.2　
+MySQL 5.7.39
+Laravel 8.83.27
+
+## 設計書
+[設計書ページへ](https://drive.google.com/drive/folders/1phKOi5XoQYrNwRO6RpLjOi-HecRW4mZz?usp=sharing)
+
+## システム閲覧
+[アプリケーションページへ](https://techis-ip-joichi.herokuapp.com/	)
+
+### テストアカウント情報
 ```
-例）
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=item_management
-DB_USERNAME=root
-DB_PASSWORD=root
+メールアドレス : jyo07140714@gmail.com
+パスワード : Passwordjoichi
 ```
-* APP_KEY生成
-```
-$ php artisan key:generate
-```
-* Composerインストール
-```
-$ composer install
-```
-* フロント環境構築
-```
-$ npm install
-$ npm run dev
-```
-* マイグレーション
-```
-$ php artisan migrate
-```
-# ip-joichi
